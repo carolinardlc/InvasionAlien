@@ -21,4 +21,6 @@ public interface Commons {
     int DELAY = 17;
     int PLAYER_WIDTH = 15;
     int PLAYER_HEIGHT = 10;
+
+    int SCORE_PER_ALIEN = 100;
 }
