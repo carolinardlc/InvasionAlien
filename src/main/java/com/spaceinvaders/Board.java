@@ -32,6 +32,7 @@ public class Board extends JPanel {
 
     private int direction = -1;
     private int deaths = 0;
+    private int score = 0;
 
     private boolean inGame = true;
     private String explImg = "src/images/explosion.png";
@@ -213,6 +214,7 @@ public class Board extends JPanel {
                         alien.setImage(ii.getImage());
                         alien.setDying(true);
                         deaths++;
+                        score += Commons.SCORE_PER_ALIEN;
                         shot.die();
                     }
                 }
