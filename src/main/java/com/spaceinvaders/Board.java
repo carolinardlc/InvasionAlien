@@ -76,6 +76,13 @@ public class Board extends JPanel {
         shot = new Shot();
     }
 
+    private void drawHud(Graphics g) {
+
+        g.setColor(Color.white);
+        g.setFont(new Font("Helvetica", Font.BOLD, 12));
+        g.drawString("Score: " + score, 5, 15);
+    }
+
     private void drawAliens(Graphics g) {
 
         for (Alien alien : aliens) {
@@ -149,6 +156,7 @@ public class Board extends JPanel {
             drawPlayer(g);
             drawShot(g);
             drawBombing(g);
+            drawHud(g);
 
         } else {
 
