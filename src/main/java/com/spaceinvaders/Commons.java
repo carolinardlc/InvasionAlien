@@ -23,4 +23,5 @@ public interface Commons {
     int PLAYER_HEIGHT = 10;
 
     int SCORE_PER_ALIEN = 100;
+    int INITIAL_LIVES = 3;
 }
