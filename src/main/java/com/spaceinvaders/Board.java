@@ -33,6 +33,7 @@ public class Board extends JPanel {
     private int direction = -1;
     private int deaths = 0;
     private int score = 0;
+    private int lives = Commons.INITIAL_LIVES;
 
     private boolean inGame = true;
     private String explImg = "src/images/explosion.png";
@@ -108,8 +109,16 @@ public class Board extends JPanel {
 
         if (player.isDying()) {
 
-            player.die();
-            inGame = false;
+            lives--;
+
+            if (lives <= 0) {
+                player.die();
+                inGame = false;
+            } else {
+                player.setDying(false);
+                player.setImage(new ImageIcon("src/images/player.png").getImage());
+                player.setX(270);
+            }
         }
     }
 
