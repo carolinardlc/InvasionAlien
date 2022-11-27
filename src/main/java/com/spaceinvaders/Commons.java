@@ -24,4 +24,5 @@ public interface Commons {
 
     int SCORE_PER_ALIEN = 100;
     int INITIAL_LIVES = 3;
+    int SPEED_INCREASE = 1;
 }

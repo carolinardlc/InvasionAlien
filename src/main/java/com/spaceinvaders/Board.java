@@ -34,6 +34,7 @@ public class Board extends JPanel {
     private int deaths = 0;
     private int score = 0;
     private int lives = Commons.INITIAL_LIVES;
+    private int level = 1;
 
     private boolean inGame = true;
     private String explImg = "src/images/explosion.png";
