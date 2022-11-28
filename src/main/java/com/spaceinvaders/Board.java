@@ -83,6 +83,7 @@ public class Board extends JPanel {
         g.setColor(Color.white);
         g.setFont(new Font("Helvetica", Font.BOLD, 12));
         g.drawString("Score: " + score, 5, 15);
+        g.drawString("Level: " + level, Commons.BOARD_WIDTH / 2 - 25, 15);
         g.drawString("Lives: " + lives, Commons.BOARD_WIDTH - 80, 15);
     }
 
@@ -204,9 +205,20 @@ public class Board extends JPanel {
 
         if (deaths == Commons.NUMBER_OF_ALIENS_TO_DESTROY) {
 
-            inGame = false;
-            timer.stop();
-            message = "Game won!";
+            level++;
+            deaths = 0;
+            direction = -1;
+
+            aliens.clear();
+
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 6; j++) {
+
+                    Alien alien = new Alien(Commons.ALIEN_INIT_X + 18 * j,
+                            Commons.ALIEN_INIT_Y + 18 * i);
+                    aliens.add(alien);
+                }
+            }
         }
 
         // player
@@ -297,7 +309,8 @@ public class Board extends JPanel {
                     message = "Invasion!";
                 }
 
-                alien.act(direction);
+                int speed = direction * (1 + (level - 1) * Commons.SPEED_INCREASE);
+                alien.act(speed);
             }
         }
 
