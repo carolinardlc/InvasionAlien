@@ -199,6 +199,13 @@ public class Board extends JPanel {
         g.setFont(small);
         g.drawString(message, (Commons.BOARD_WIDTH - fontMetrics.stringWidth(message)) / 2,
                 Commons.BOARD_WIDTH / 2);
+
+        Font hint = new Font("Helvetica", Font.PLAIN, 11);
+        g.setFont(hint);
+        String restartMsg = "Press ENTER to play again";
+        FontMetrics hintMetrics = this.getFontMetrics(hint);
+        g.drawString(restartMsg, (Commons.BOARD_WIDTH - hintMetrics.stringWidth(restartMsg)) / 2,
+                Commons.BOARD_WIDTH / 2 + 20);
     }
 
     private void update() {
@@ -403,6 +410,25 @@ public class Board extends JPanel {
                     }
                 }
             }
+
+            if (key == KeyEvent.VK_ENTER && !inGame) {
+
+                restartGame();
+            }
         }
+    }
+
+    private void restartGame() {
+
+        deaths = 0;
+        score = 0;
+        lives = Commons.INITIAL_LIVES;
+        level = 1;
+        direction = -1;
+        inGame = true;
+        message = "Game Over";
+
+        gameInit();
+        timer.restart();
     }
 }
