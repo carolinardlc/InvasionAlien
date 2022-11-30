@@ -37,6 +37,7 @@ public class Board extends JPanel {
     private int level = 1;
 
     private boolean inGame = true;
+    private boolean paused = false;
     private String explImg = "src/images/explosion.png";
     private String message = "Game Over";
 
