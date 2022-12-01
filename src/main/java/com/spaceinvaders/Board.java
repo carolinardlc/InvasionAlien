@@ -412,6 +412,11 @@ public class Board extends JPanel {
                 }
             }
 
+            if (key == KeyEvent.VK_P && inGame) {
+
+                paused = !paused;
+            }
+
             if (key == KeyEvent.VK_ENTER && !inGame) {
 
                 restartGame();
