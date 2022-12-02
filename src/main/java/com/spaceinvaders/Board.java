@@ -370,7 +370,9 @@ public class Board extends JPanel {
 
     private void doGameCycle() {
 
-        update();
+        if (!paused) {
+            update();
+        }
         repaint();
     }
 
