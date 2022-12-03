@@ -88,6 +88,22 @@ public class Board extends JPanel {
         g.drawString("Lives: " + lives, Commons.BOARD_WIDTH - 80, 15);
     }
 
+    private void drawPaused(Graphics g) {
+
+        String pauseMsg = "PAUSED";
+        Font font = new Font("Helvetica", Font.BOLD, 20);
+        FontMetrics fm = this.getFontMetrics(font);
+
+        g.setColor(new Color(0, 32, 48));
+        g.fillRect(50, Commons.BOARD_HEIGHT / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
+        g.setColor(Color.white);
+        g.drawRect(50, Commons.BOARD_HEIGHT / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
+
+        g.setFont(font);
+        g.drawString(pauseMsg, (Commons.BOARD_WIDTH - fm.stringWidth(pauseMsg)) / 2,
+                Commons.BOARD_HEIGHT / 2);
+    }
+
     private void drawAliens(Graphics g) {
 
         for (Alien alien : aliens) {
@@ -170,6 +186,10 @@ public class Board extends JPanel {
             drawShot(g);
             drawBombing(g);
             drawHud(g);
+
+            if (paused) {
+                drawPaused(g);
+            }
 
         } else {
 
