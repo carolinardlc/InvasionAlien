@@ -25,4 +25,9 @@ public interface Commons {
     int SCORE_PER_ALIEN = 100;
     int INITIAL_LIVES = 3;
     int SPEED_INCREASE = 1;
+
+    int NUM_SHIELDS = 4;
+    int SHIELD_WIDTH = 10;
+    int SHIELD_HEIGHT = 6;
+    int SHIELD_Y = 250;
 }
