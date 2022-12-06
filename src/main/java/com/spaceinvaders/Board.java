@@ -6,6 +6,7 @@ import javax.swing.Timer;
 
 import com.spaceinvaders.sprites.Alien;
 import com.spaceinvaders.sprites.Player;
+import com.spaceinvaders.sprites.Shield;
 import com.spaceinvaders.sprites.Shot;
 
 import java.awt.Color;
@@ -27,6 +28,7 @@ public class Board extends JPanel {
 
     private Dimension d;
     private List<Alien> aliens;
+    private List<Shield> shields;
     private Player player;
     private Shot shot;
 
@@ -77,6 +79,16 @@ public class Board extends JPanel {
 
         player = new Player();
         shot = new Shot();
+
+        shields = new ArrayList<>();
+        int spacing = Commons.BOARD_WIDTH / (Commons.NUM_SHIELDS + 1);
+
+        for (int i = 0; i < Commons.NUM_SHIELDS; i++) {
+
+            int shieldX = spacing * (i + 1) - (Commons.SHIELD_WIDTH * 3) / 2;
+            shields.add(new Shield(shieldX, Commons.SHIELD_Y,
+                    Commons.SHIELD_WIDTH, Commons.SHIELD_HEIGHT));
+        }
     }
 
     private void drawHud(Graphics g) {
