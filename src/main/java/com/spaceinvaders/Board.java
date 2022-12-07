@@ -154,6 +154,13 @@ public class Board extends JPanel {
         }
     }
 
+    private void drawShields(Graphics g) {
+
+        for (Shield shield : shields) {
+            shield.draw(g);
+        }
+    }
+
     private void drawShot(Graphics g) {
 
         if (shot.isVisible()) {
@@ -197,6 +204,7 @@ public class Board extends JPanel {
             drawPlayer(g);
             drawShot(g);
             drawBombing(g);
+            drawShields(g);
             drawHud(g);
 
             if (paused) {
