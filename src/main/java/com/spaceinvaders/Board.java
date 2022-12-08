@@ -299,6 +299,12 @@ public class Board extends JPanel {
                 }
             }
 
+            for (Shield shield : shields) {
+                if (shot.isVisible() && shield.hit(shotX, shotY)) {
+                    shot.die();
+                }
+            }
+
             int y = shot.getY();
             y -= 4;
 
