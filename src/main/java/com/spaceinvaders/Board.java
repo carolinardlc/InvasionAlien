@@ -404,6 +404,16 @@ public class Board extends JPanel {
 
             if (!bomb.isDestroyed()) {
 
+                for (Shield shield : shields) {
+                    if (shield.hit(bomb.getX(), bomb.getY())) {
+                        bomb.setDestroyed(true);
+                        break;
+                    }
+                }
+            }
+
+            if (!bomb.isDestroyed()) {
+
                 bomb.setY(bomb.getY() + 1);
 
                 if (bomb.getY() >= Commons.GROUND - Commons.BOMB_HEIGHT) {
