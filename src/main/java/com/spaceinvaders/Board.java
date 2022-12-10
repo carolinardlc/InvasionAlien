@@ -267,6 +267,10 @@ public class Board extends JPanel {
                     aliens.add(alien);
                 }
             }
+
+            for (Shield shield : shields) {
+                shield.reset();
+            }
         }
 
         // player
