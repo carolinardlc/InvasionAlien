@@ -494,7 +494,12 @@ public class Board extends JPanel {
         level = 1;
         direction = -1;
         inGame = true;
+        paused = false;
         message = "Game Over";
+
+        for (Shield shield : shields) {
+            shield.reset();
+        }
 
         gameInit();
         timer.restart();
