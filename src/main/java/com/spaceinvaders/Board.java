@@ -38,7 +38,8 @@ public class Board extends JPanel {
     private int lives = Commons.INITIAL_LIVES;
     private int level = 1;
 
-    private boolean inGame = true;
+    private boolean inGame = false;
+    private boolean onTitle = true;
     private boolean paused = false;
     private String explImg = "src/images/explosion.png";
     private String message = "Game Over";
@@ -59,7 +60,6 @@ public class Board extends JPanel {
         setBackground(Color.black);
 
         timer = new Timer(Commons.DELAY, new GameCycle());
-        timer.start();
 
         gameInit();
     }
@@ -89,6 +89,12 @@ public class Board extends JPanel {
             shields.add(new Shield(shieldX, Commons.SHIELD_Y,
                     Commons.SHIELD_WIDTH, Commons.SHIELD_HEIGHT));
         }
+    }
+
+    private void drawTitle(Graphics g) {
+
+        g.setColor(Color.black);
+        g.fillRect(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
     }
 
     private void drawHud(Graphics g) {
@@ -195,7 +201,11 @@ public class Board extends JPanel {
         g.fillRect(0, 0, d.width, d.height);
         g.setColor(Color.green);
 
-        if (inGame) {
+        if (onTitle) {
+
+            drawTitle(g);
+
+        } else if (inGame) {
 
             g.drawLine(0, Commons.GROUND,
                     Commons.BOARD_WIDTH, Commons.GROUND);
@@ -494,6 +504,7 @@ public class Board extends JPanel {
         level = 1;
         direction = -1;
         inGame = true;
+        onTitle = false;
         paused = false;
         message = "Game Over";
 
