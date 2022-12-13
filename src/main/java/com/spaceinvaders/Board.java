@@ -95,6 +95,15 @@ public class Board extends JPanel {
 
         g.setColor(Color.black);
         g.fillRect(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
+
+        String title = "SPACE INVADERS";
+        Font titleFont = new Font("Helvetica", Font.BOLD, 28);
+        FontMetrics fm = this.getFontMetrics(titleFont);
+
+        g.setColor(Color.green);
+        g.setFont(titleFont);
+        g.drawString(title, (Commons.BOARD_WIDTH - fm.stringWidth(title)) / 2,
+                Commons.BOARD_HEIGHT / 3);
     }
 
     private void drawHud(Graphics g) {
