@@ -104,6 +104,15 @@ public class Board extends JPanel {
         g.setFont(titleFont);
         g.drawString(title, (Commons.BOARD_WIDTH - fm.stringWidth(title)) / 2,
                 Commons.BOARD_HEIGHT / 3);
+
+        String prompt = "Press ENTER to start";
+        Font promptFont = new Font("Helvetica", Font.PLAIN, 14);
+        FontMetrics pfm = this.getFontMetrics(promptFont);
+
+        g.setColor(Color.white);
+        g.setFont(promptFont);
+        g.drawString(prompt, (Commons.BOARD_WIDTH - pfm.stringWidth(prompt)) / 2,
+                Commons.BOARD_HEIGHT / 2);
     }
 
     private void drawHud(Graphics g) {
