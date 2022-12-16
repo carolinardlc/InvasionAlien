@@ -35,6 +35,7 @@ public class Board extends JPanel {
     private int direction = -1;
     private int deaths = 0;
     private int score = 0;
+    private int highScore = 0;
     private int lives = Commons.INITIAL_LIVES;
     private int level = 1;
 
