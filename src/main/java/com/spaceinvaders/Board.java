@@ -244,6 +244,10 @@ public class Board extends JPanel {
 
             if (timer.isRunning()) {
                 timer.stop();
+
+                if (score > highScore) {
+                    highScore = score;
+                }
             }
 
             gameOver(g);
