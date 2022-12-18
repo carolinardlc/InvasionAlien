@@ -121,6 +121,7 @@ public class Board extends JPanel {
         g.setColor(Color.white);
         g.setFont(new Font("Helvetica", Font.BOLD, 12));
         g.drawString("Score: " + score, 5, 15);
+        g.drawString("Hi: " + highScore, 5, 30);
         g.drawString("Level: " + level, Commons.BOARD_WIDTH / 2 - 25, 15);
         g.drawString("Lives: " + lives, Commons.BOARD_WIDTH - 80, 15);
     }
