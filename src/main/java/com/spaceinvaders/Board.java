@@ -281,6 +281,11 @@ public class Board extends JPanel {
         FontMetrics hintMetrics = this.getFontMetrics(hint);
         g.drawString(restartMsg, (Commons.BOARD_WIDTH - hintMetrics.stringWidth(restartMsg)) / 2,
                 Commons.BOARD_WIDTH / 2 + 20);
+
+        String scoreMsg = "Score: " + score + "    High Score: " + highScore;
+        FontMetrics scoreFm = this.getFontMetrics(hint);
+        g.drawString(scoreMsg, (Commons.BOARD_WIDTH - scoreFm.stringWidth(scoreMsg)) / 2,
+                Commons.BOARD_WIDTH / 2 + 40);
     }
 
     private void update() {
