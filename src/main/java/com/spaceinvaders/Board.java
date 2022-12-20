@@ -19,6 +19,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -248,6 +251,7 @@ public class Board extends JPanel {
 
                 if (score > highScore) {
                     highScore = score;
+                    saveHighScore();
                 }
             }
 
@@ -528,6 +532,17 @@ public class Board extends JPanel {
                     restartGame();
                 }
             }
+        }
+    }
+
+    private void saveHighScore() {
+
+        try {
+            FileWriter writer = new FileWriter("highscore.dat");
+            writer.write(String.valueOf(highScore));
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
