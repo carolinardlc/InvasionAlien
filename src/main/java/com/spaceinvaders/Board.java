@@ -22,6 +22,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -54,6 +55,7 @@ public class Board extends JPanel {
 
         initBoard();
         gameInit();
+        loadHighScore();
     }
 
     private void initBoard() {
@@ -541,6 +543,25 @@ public class Board extends JPanel {
             FileWriter writer = new FileWriter("highscore.dat");
             writer.write(String.valueOf(highScore));
             writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadHighScore() {
+
+        try {
+            File file = new File("highscore.dat");
+
+            if (file.exists()) {
+                Scanner scanner = new Scanner(file);
+
+                if (scanner.hasNextInt()) {
+                    highScore = scanner.nextInt();
+                }
+
+                scanner.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
