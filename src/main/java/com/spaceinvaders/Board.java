@@ -515,6 +515,7 @@ public class Board extends JPanel {
                     if (!shot.isVisible()) {
 
                         shot = new Shot(x, y);
+                        SoundManager.play("shoot.wav");
                     }
                 }
             }
