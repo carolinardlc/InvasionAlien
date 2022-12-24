@@ -343,6 +343,7 @@ public class Board extends JPanel {
                         alien.setDying(true);
                         deaths++;
                         score += Commons.SCORE_PER_ALIEN;
+                        SoundManager.play("explosion.wav");
                         shot.die();
                     }
                 }
