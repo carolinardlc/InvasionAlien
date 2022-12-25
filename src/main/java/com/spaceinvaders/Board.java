@@ -449,6 +449,7 @@ public class Board extends JPanel {
                     player.setImage(ii.getImage());
                     player.setDying(true);
                     bomb.setDestroyed(true);
+                    SoundManager.play("death.wav");
                 }
             }
 
