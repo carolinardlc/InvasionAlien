@@ -302,6 +302,7 @@ public class Board extends JPanel {
             level++;
             deaths = 0;
             direction = -1;
+            SoundManager.play("levelclear.wav");
 
             aliens.clear();
 
