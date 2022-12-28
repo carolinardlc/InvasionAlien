@@ -78,7 +78,7 @@ public class Board extends JPanel {
             for (int j = 0; j < 6; j++) {
 
                 Alien alien = new Alien(Commons.ALIEN_INIT_X + 18 * j,
-                        Commons.ALIEN_INIT_Y + 18 * i);
+                        Commons.ALIEN_INIT_Y + 18 * i, i);
                 aliens.add(alien);
             }
         }
@@ -310,7 +310,7 @@ public class Board extends JPanel {
                 for (int j = 0; j < 6; j++) {
 
                     Alien alien = new Alien(Commons.ALIEN_INIT_X + 18 * j,
-                            Commons.ALIEN_INIT_Y + 18 * i);
+                            Commons.ALIEN_INIT_Y + 18 * i, i);
                     aliens.add(alien);
                 }
             }

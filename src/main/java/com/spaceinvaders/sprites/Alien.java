@@ -5,10 +5,17 @@ import javax.swing.ImageIcon;
 public class Alien extends Sprite {
 
     private Bomb bomb;
+    private int type;
 
-    public Alien(int x, int y) {
+    public Alien(int x, int y, int type) {
 
+        this.type = type;
         initAlien(x, y);
+    }
+
+    public int getType() {
+
+        return type;
     }
 
     private void initAlien(int x, int y) {
