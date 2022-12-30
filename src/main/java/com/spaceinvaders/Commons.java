@@ -23,6 +23,7 @@ public interface Commons {
     int PLAYER_HEIGHT = 10;
 
     int SCORE_PER_ALIEN = 100;
+    int[] SCORE_BY_TYPE = {400, 300, 200, 100};
     int INITIAL_LIVES = 3;
     int SPEED_INCREASE = 1;
 
