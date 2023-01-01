@@ -31,4 +31,7 @@ public interface Commons {
     int SHIELD_WIDTH = 10;
     int SHIELD_HEIGHT = 6;
     int SHIELD_Y = 250;
+
+    int BASE_BOMB_CHANCE = 15;
+    int MIN_BOMB_CHANCE = 5;
 }
