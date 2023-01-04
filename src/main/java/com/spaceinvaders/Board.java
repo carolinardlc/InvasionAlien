@@ -119,6 +119,24 @@ public class Board extends JPanel {
         g.setFont(promptFont);
         g.drawString(prompt, (Commons.BOARD_WIDTH - pfm.stringWidth(prompt)) / 2,
                 Commons.BOARD_HEIGHT / 2);
+
+        Font controlsFont = new Font("Helvetica", Font.PLAIN, 11);
+        g.setFont(controlsFont);
+        g.setColor(Color.gray);
+
+        String[] controls = {
+            "LEFT / RIGHT - Move",
+            "SPACE - Shoot",
+            "P - Pause"
+        };
+
+        int controlsY = Commons.BOARD_HEIGHT / 2 + 40;
+
+        for (String line : controls) {
+            FontMetrics cfm = this.getFontMetrics(controlsFont);
+            g.drawString(line, (Commons.BOARD_WIDTH - cfm.stringWidth(line)) / 2, controlsY);
+            controlsY += 16;
+        }
     }
 
     private void drawHud(Graphics g) {
