@@ -6,6 +6,8 @@ public class Alien extends Sprite {
 
     private Bomb bomb;
     private int type;
+    private int explosionFrames = 0;
+    private static final int EXPLOSION_DURATION = 10;
 
     public Alien(int x, int y, int type) {
 
@@ -40,6 +42,23 @@ public class Alien extends Sprite {
     public void act(int direction) {
 
         this.x += direction;
+    }
+
+    public void startExplosion() {
+
+        explosionFrames = EXPLOSION_DURATION;
+    }
+
+    public boolean isExploding() {
+
+        return explosionFrames > 0;
+    }
+
+    public void tickExplosion() {
+
+        if (explosionFrames > 0) {
+            explosionFrames--;
+        }
     }
 
     public Bomb getBomb() {
