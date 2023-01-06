@@ -174,7 +174,15 @@ public class Board extends JPanel {
                 g.drawImage(alien.getImage(), alien.getX(), alien.getY(), this);
             }
 
-            if (alien.isDying()) {
+            if (alien.isExploding()) {
+
+                g.drawImage(alien.getImage(), alien.getX(), alien.getY(), this);
+                alien.tickExplosion();
+
+                if (!alien.isExploding()) {
+                    alien.die();
+                }
+            } else if (alien.isDying()) {
 
                 alien.die();
             }
@@ -360,7 +368,8 @@ public class Board extends JPanel {
 
                         ImageIcon ii = new ImageIcon(explImg);
                         alien.setImage(ii.getImage());
-                        alien.setDying(true);
+                        alien.startExplosion();
+                        alien.setVisible(false);
                         deaths++;
                         score += Commons.SCORE_BY_TYPE[alien.getType()];
                         SoundManager.play("explosion.wav");
