@@ -6,6 +6,7 @@ import javax.swing.Timer;
 
 import com.spaceinvaders.sprites.Alien;
 import com.spaceinvaders.sprites.Player;
+import com.spaceinvaders.sprites.ScorePopup;
 import com.spaceinvaders.sprites.Shield;
 import com.spaceinvaders.sprites.Shot;
 
@@ -33,6 +34,7 @@ public class Board extends JPanel {
     private Dimension d;
     private List<Alien> aliens;
     private List<Shield> shields;
+    private List<ScorePopup> scorePopups = new ArrayList<>();
     private Player player;
     private Shot shot;
 
@@ -371,7 +373,9 @@ public class Board extends JPanel {
                         alien.startExplosion();
                         alien.setVisible(false);
                         deaths++;
-                        score += Commons.SCORE_BY_TYPE[alien.getType()];
+                        int points = Commons.SCORE_BY_TYPE[alien.getType()];
+                        score += points;
+                        scorePopups.add(new ScorePopup(alienX, alienY, points));
                         SoundManager.play("explosion.wav");
                         shot.die();
                     }
