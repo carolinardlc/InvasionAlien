@@ -213,6 +213,14 @@ public class Board extends JPanel {
         }
     }
 
+    private void drawScorePopups(Graphics g) {
+
+        for (ScorePopup popup : scorePopups) {
+            popup.draw(g);
+            popup.tick();
+        }
+    }
+
     private void drawShields(Graphics g) {
 
         for (Shield shield : shields) {
@@ -268,6 +276,7 @@ public class Board extends JPanel {
             drawShot(g);
             drawBombing(g);
             drawShields(g);
+            drawScorePopups(g);
             drawHud(g);
 
             if (paused) {
