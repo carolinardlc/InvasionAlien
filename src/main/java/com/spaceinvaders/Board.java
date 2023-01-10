@@ -215,9 +215,16 @@ public class Board extends JPanel {
 
     private void drawScorePopups(Graphics g) {
 
-        for (ScorePopup popup : scorePopups) {
+        Iterator<ScorePopup> it = scorePopups.iterator();
+
+        while (it.hasNext()) {
+            ScorePopup popup = it.next();
             popup.draw(g);
             popup.tick();
+
+            if (popup.isExpired()) {
+                it.remove();
+            }
         }
     }
 
