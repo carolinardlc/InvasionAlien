@@ -9,6 +9,7 @@ import com.spaceinvaders.sprites.Player;
 import com.spaceinvaders.sprites.ScorePopup;
 import com.spaceinvaders.sprites.Shield;
 import com.spaceinvaders.sprites.Shot;
+import com.spaceinvaders.sprites.Star;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -35,6 +36,7 @@ public class Board extends JPanel {
     private List<Alien> aliens;
     private List<Shield> shields;
     private List<ScorePopup> scorePopups = new ArrayList<>();
+    private List<Star> stars = new ArrayList<>();
     private Player player;
     private Shot shot;
 
@@ -68,6 +70,10 @@ public class Board extends JPanel {
         setBackground(Color.black);
 
         timer = new Timer(Commons.DELAY, new GameCycle());
+
+        for (int i = 0; i < 50; i++) {
+            stars.add(new Star(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT));
+        }
 
         gameInit();
     }
