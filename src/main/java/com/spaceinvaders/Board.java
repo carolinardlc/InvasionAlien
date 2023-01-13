@@ -219,6 +219,14 @@ public class Board extends JPanel {
         }
     }
 
+    private void drawStars(Graphics g) {
+
+        for (Star star : stars) {
+            star.draw(g);
+            star.tick(Commons.BOARD_HEIGHT);
+        }
+    }
+
     private void drawScorePopups(Graphics g) {
 
         Iterator<ScorePopup> it = scorePopups.iterator();
@@ -273,6 +281,9 @@ public class Board extends JPanel {
 
         g.setColor(Color.black);
         g.fillRect(0, 0, d.width, d.height);
+
+        drawStars(g);
+
         g.setColor(Color.green);
 
         if (onTitle) {
