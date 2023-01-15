@@ -1,6 +1,7 @@
 package com.spaceinvaders;
 
 import java.awt.EventQueue;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class SpaceInvaders extends JFrame {
@@ -20,6 +21,7 @@ public class SpaceInvaders extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
+        setIconImage(new ImageIcon("src/images/icon.png").getImage());
     }
 
     public static void main(String[] args) {
