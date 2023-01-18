@@ -34,4 +34,9 @@ public interface Commons {
 
     int BASE_BOMB_CHANCE = 15;
     int MIN_BOMB_CHANCE = 5;
+
+    int UFO_SCORE = 500;
+    int UFO_SPAWN_CHANCE = 500;
+    int UFO_WIDTH = 12;
+    int UFO_HEIGHT = 12;
 }
