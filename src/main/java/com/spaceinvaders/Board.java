@@ -10,6 +10,7 @@ import com.spaceinvaders.sprites.ScorePopup;
 import com.spaceinvaders.sprites.Shield;
 import com.spaceinvaders.sprites.Shot;
 import com.spaceinvaders.sprites.Star;
+import com.spaceinvaders.sprites.Ufo;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -39,6 +40,7 @@ public class Board extends JPanel {
     private List<Star> stars = new ArrayList<>();
     private Player player;
     private Shot shot;
+    private Ufo ufo = new Ufo();
 
     private int direction = -1;
     private int deaths = 0;
