@@ -486,8 +486,14 @@ public class Board extends JPanel {
             }
         }
 
-        // bombs
+        // ufo
         Random generator = new Random();
+
+        if (!ufo.isActive() && generator.nextInt(Commons.UFO_SPAWN_CHANCE) == 0) {
+            ufo.spawn();
+        }
+
+        // bombs
 
         for (Alien alien : aliens) {
 
