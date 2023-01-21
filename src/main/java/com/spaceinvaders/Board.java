@@ -493,6 +493,14 @@ public class Board extends JPanel {
             ufo.spawn();
         }
 
+        if (ufo.isActive()) {
+            ufo.act();
+
+            if (ufo.getX() > Commons.BOARD_WIDTH) {
+                ufo.setActive(false);
+            }
+        }
+
         // bombs
 
         for (Alien alien : aliens) {
