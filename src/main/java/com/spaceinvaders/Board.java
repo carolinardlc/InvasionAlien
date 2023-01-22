@@ -221,6 +221,13 @@ public class Board extends JPanel {
         }
     }
 
+    private void drawUfo(Graphics g) {
+
+        if (ufo.isActive()) {
+            g.drawImage(ufo.getImage(), ufo.getX(), ufo.getY(), this);
+        }
+    }
+
     private void drawStars(Graphics g) {
 
         for (Star star : stars) {
@@ -302,6 +309,7 @@ public class Board extends JPanel {
             drawShot(g);
             drawBombing(g);
             drawShields(g);
+            drawUfo(g);
             drawScorePopups(g);
             drawHud(g);
 
