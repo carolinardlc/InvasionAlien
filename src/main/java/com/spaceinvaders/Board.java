@@ -425,6 +425,20 @@ public class Board extends JPanel {
                 }
             }
 
+            if (ufo.isActive() && shot.isVisible()) {
+                int ufoX = ufo.getX();
+                int ufoY = ufo.getY();
+
+                if (shotX >= ufoX
+                        && shotX <= ufoX + Commons.UFO_WIDTH
+                        && shotY >= ufoY
+                        && shotY <= ufoY + Commons.UFO_HEIGHT) {
+
+                    ufo.setActive(false);
+                    shot.die();
+                }
+            }
+
             for (Shield shield : shields) {
                 if (shot.isVisible() && shield.hit(shotX, shotY)) {
                     shot.die();
