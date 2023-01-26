@@ -435,6 +435,8 @@ public class Board extends JPanel {
                         && shotY <= ufoY + Commons.UFO_HEIGHT) {
 
                     ufo.setActive(false);
+                    score += Commons.UFO_SCORE;
+                    scorePopups.add(new ScorePopup(ufoX, ufoY, Commons.UFO_SCORE));
                     shot.die();
                 }
             }
