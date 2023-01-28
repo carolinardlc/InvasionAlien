@@ -437,6 +437,7 @@ public class Board extends JPanel {
                     ufo.setActive(false);
                     score += Commons.UFO_SCORE;
                     scorePopups.add(new ScorePopup(ufoX, ufoY, Commons.UFO_SCORE));
+                    SoundManager.play("ufo.wav");
                     shot.die();
                 }
             }
