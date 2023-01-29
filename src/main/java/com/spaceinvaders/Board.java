@@ -389,6 +389,8 @@ public class Board extends JPanel {
             for (Shield shield : shields) {
                 shield.reset();
             }
+
+            ufo.setActive(false);
         }
 
         // player
