@@ -697,6 +697,8 @@ public class Board extends JPanel {
             shield.reset();
         }
 
+        ufo.setActive(false);
+
         gameInit();
         timer.restart();
     }
