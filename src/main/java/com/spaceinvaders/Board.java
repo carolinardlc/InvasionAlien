@@ -493,6 +493,14 @@ public class Board extends JPanel {
             }
         }
 
+        int remaining = 0;
+
+        for (Alien a : aliens) {
+            if (a.isVisible()) {
+                remaining++;
+            }
+        }
+
         Iterator<Alien> it = aliens.iterator();
 
         while (it.hasNext()) {
