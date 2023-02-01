@@ -516,7 +516,9 @@ public class Board extends JPanel {
                     message = "Invasion!";
                 }
 
-                int speed = direction * (1 + (level - 1) * Commons.SPEED_INCREASE);
+                int baseSpeed = 1 + (level - 1) * Commons.SPEED_INCREASE;
+                int boost = (Commons.NUMBER_OF_ALIENS_TO_DESTROY - remaining) / 6;
+                int speed = direction * (baseSpeed + boost);
                 alien.act(speed);
             }
         }
