@@ -39,4 +39,9 @@ public interface Commons {
     int UFO_SPAWN_CHANCE = 500;
     int UFO_WIDTH = 12;
     int UFO_HEIGHT = 12;
+
+    int POWERUP_DROP_CHANCE = 10;
+    int POWERUP_WIDTH = 10;
+    int POWERUP_HEIGHT = 10;
+    int POWERUP_DURATION = 300;
 }
