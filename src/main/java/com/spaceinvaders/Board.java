@@ -8,6 +8,7 @@ import com.spaceinvaders.sprites.Alien;
 import com.spaceinvaders.sprites.Player;
 import com.spaceinvaders.sprites.ScorePopup;
 import com.spaceinvaders.sprites.Shield;
+import com.spaceinvaders.sprites.PowerUp;
 import com.spaceinvaders.sprites.Shot;
 import com.spaceinvaders.sprites.Star;
 import com.spaceinvaders.sprites.Ufo;
@@ -41,6 +42,7 @@ public class Board extends JPanel {
     private Player player;
     private Shot shot;
     private Ufo ufo = new Ufo();
+    private PowerUp powerUp = new PowerUp();
 
     private int direction = -1;
     private int deaths = 0;
@@ -422,6 +424,14 @@ public class Board extends JPanel {
                         score += points;
                         scorePopups.add(new ScorePopup(alienX, alienY, points));
                         SoundManager.play("explosion.wav");
+
+                        if (!powerUp.isActive()) {
+                            Random r = new Random();
+                            if (r.nextInt(Commons.POWERUP_DROP_CHANCE) == 0) {
+                                powerUp.spawn(alienX, alienY);
+                            }
+                        }
+
                         shot.die();
                     }
                 }
