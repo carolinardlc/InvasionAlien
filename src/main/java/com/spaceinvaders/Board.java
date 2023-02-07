@@ -223,6 +223,13 @@ public class Board extends JPanel {
         }
     }
 
+    private void drawPowerUp(Graphics g) {
+
+        if (powerUp.isActive()) {
+            g.drawImage(powerUp.getImage(), powerUp.getX(), powerUp.getY(), this);
+        }
+    }
+
     private void drawUfo(Graphics g) {
 
         if (ufo.isActive()) {
@@ -312,6 +319,7 @@ public class Board extends JPanel {
             drawBombing(g);
             drawShields(g);
             drawUfo(g);
+            drawPowerUp(g);
             drawScorePopups(g);
             drawHud(g);
 
