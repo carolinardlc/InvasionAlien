@@ -556,6 +556,26 @@ public class Board extends JPanel {
             }
         }
 
+        // power-up
+        if (powerUp.isActive()) {
+            powerUp.act();
+
+            int puX = powerUp.getX();
+            int puY = powerUp.getY();
+            int playerX = player.getX();
+            int playerY = player.getY();
+
+            if (puX >= playerX && puX <= playerX + Commons.PLAYER_WIDTH
+                    && puY >= playerY && puY <= playerY + Commons.PLAYER_HEIGHT) {
+
+                powerUp.setActive(false);
+            }
+
+            if (puY > Commons.GROUND) {
+                powerUp.setActive(false);
+            }
+        }
+
         // bombs
 
         for (Alien alien : aliens) {
