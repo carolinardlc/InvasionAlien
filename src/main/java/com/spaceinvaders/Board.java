@@ -50,6 +50,8 @@ public class Board extends JPanel {
     private int highScore = 0;
     private int lives = Commons.INITIAL_LIVES;
     private int level = 1;
+    private boolean doubleShot = false;
+    private int doubleShotTimer = 0;
 
     private boolean inGame = false;
     private boolean onTitle = true;
@@ -569,6 +571,8 @@ public class Board extends JPanel {
                     && puY >= playerY && puY <= playerY + Commons.PLAYER_HEIGHT) {
 
                 powerUp.setActive(false);
+                doubleShot = true;
+                doubleShotTimer = Commons.POWERUP_DURATION;
             }
 
             if (puY > Commons.GROUND) {
