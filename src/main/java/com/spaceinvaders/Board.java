@@ -40,6 +40,7 @@ public class Board extends JPanel {
     private List<ScorePopup> scorePopups = new ArrayList<>();
     private List<Star> stars = new ArrayList<>();
     private Player player;
+    private Shot shot2;
     private Shot shot;
     private Ufo ufo = new Ufo();
     private PowerUp powerUp = new PowerUp();
@@ -99,6 +100,7 @@ public class Board extends JPanel {
 
         player = new Player();
         shot = new Shot();
+        shot2 = new Shot();
 
         shields = new ArrayList<>();
         int spacing = Commons.BOARD_WIDTH / (Commons.NUM_SHIELDS + 1);
@@ -274,6 +276,11 @@ public class Board extends JPanel {
         if (shot.isVisible()) {
 
             g.drawImage(shot.getImage(), shot.getX(), shot.getY(), this);
+        }
+
+        if (shot2.isVisible()) {
+
+            g.drawImage(shot2.getImage(), shot2.getX(), shot2.getY(), this);
         }
     }
 
@@ -480,6 +487,42 @@ public class Board extends JPanel {
             }
         }
 
+        // second shot
+        if (shot2.isVisible()) {
+
+            int s2y = shot2.getY();
+            s2y -= 4;
+
+            if (s2y < 0) {
+                shot2.die();
+            } else {
+                shot2.setY(s2y);
+            }
+
+            for (Alien alien : aliens) {
+                int alienX = alien.getX();
+                int alienY = alien.getY();
+
+                if (alien.isVisible() && shot2.isVisible()) {
+                    if (shot2.getX() >= alienX
+                            && shot2.getX() <= alienX + Commons.ALIEN_WIDTH
+                            && shot2.getY() >= alienY
+                            && shot2.getY() <= alienY + Commons.ALIEN_HEIGHT) {
+
+                        ImageIcon ii = new ImageIcon(explImg);
+                        alien.setImage(ii.getImage());
+                        alien.startExplosion();
+                        alien.setVisible(false);
+                        deaths++;
+                        int points = Commons.SCORE_BY_TYPE[alien.getType()];
+                        score += points;
+                        scorePopups.add(new ScorePopup(alienX, alienY, points));
+                        shot2.die();
+                    }
+                }
+            }
+        }
+
         // aliens
 
         for (Alien alien : aliens) {
@@ -680,6 +723,11 @@ public class Board extends JPanel {
                     if (!shot.isVisible()) {
 
                         shot = new Shot(x, y);
+
+                        if (doubleShot && !shot2.isVisible()) {
+                            shot2 = new Shot(x + 10, y);
+                        }
+
                         SoundManager.play("shoot.wav");
                     }
                 }
