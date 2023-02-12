@@ -586,6 +586,15 @@ public class Board extends JPanel {
             }
         }
 
+        // double shot timer
+        if (doubleShot) {
+            doubleShotTimer--;
+
+            if (doubleShotTimer <= 0) {
+                doubleShot = false;
+            }
+        }
+
         // ufo
         Random generator = new Random();
 
