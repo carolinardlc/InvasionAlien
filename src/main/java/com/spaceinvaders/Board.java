@@ -625,6 +625,7 @@ public class Board extends JPanel {
                 powerUp.setActive(false);
                 doubleShot = true;
                 doubleShotTimer = Commons.POWERUP_DURATION;
+                SoundManager.play("powerup.wav");
             }
 
             if (puY > Commons.GROUND) {
