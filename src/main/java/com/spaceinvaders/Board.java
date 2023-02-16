@@ -808,6 +808,9 @@ public class Board extends JPanel {
         }
 
         ufo.setActive(false);
+        powerUp.setActive(false);
+        doubleShot = false;
+        doubleShotTimer = 0;
 
         gameInit();
         timer.restart();
