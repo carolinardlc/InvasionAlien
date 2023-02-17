@@ -44,4 +44,12 @@ public interface Commons {
     int POWERUP_WIDTH = 10;
     int POWERUP_HEIGHT = 10;
     int POWERUP_DURATION = 300;
+
+    int DIFFICULTY_EASY = 0;
+    int DIFFICULTY_NORMAL = 1;
+    int DIFFICULTY_HARD = 2;
+
+    int[] DIFFICULTY_SPEED = {1, 2, 3};
+    int[] DIFFICULTY_BOMB_CHANCE = {18, 15, 10};
+    int[] DIFFICULTY_LIVES = {5, 3, 1};
 }
