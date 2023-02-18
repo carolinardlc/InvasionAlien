@@ -53,6 +53,7 @@ public class Board extends JPanel {
     private int level = 1;
     private boolean doubleShot = false;
     private int doubleShotTimer = 0;
+    private int difficulty = Commons.DIFFICULTY_NORMAL;
 
     private boolean inGame = false;
     private boolean onTitle = true;
