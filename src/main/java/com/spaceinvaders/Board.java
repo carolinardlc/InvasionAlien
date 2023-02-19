@@ -154,6 +154,23 @@ public class Board extends JPanel {
             g.drawString(line, (Commons.BOARD_WIDTH - cfm.stringWidth(line)) / 2, controlsY);
             controlsY += 16;
         }
+
+        String[] diffLabels = {"1 - Easy", "2 - Normal", "3 - Hard"};
+        int diffY = controlsY + 20;
+
+        g.setFont(promptFont);
+
+        for (int i = 0; i < diffLabels.length; i++) {
+            if (i == difficulty) {
+                g.setColor(Color.green);
+            } else {
+                g.setColor(Color.gray);
+            }
+
+            FontMetrics dfm = this.getFontMetrics(promptFont);
+            g.drawString(diffLabels[i], (Commons.BOARD_WIDTH - dfm.stringWidth(diffLabels[i])) / 2, diffY);
+            diffY += 18;
+        }
     }
 
     private void drawHud(Graphics g) {
