@@ -744,6 +744,18 @@ public class Board extends JPanel {
 
             int key = e.getKeyCode();
 
+            if (onTitle) {
+                if (key == KeyEvent.VK_1) {
+                    difficulty = Commons.DIFFICULTY_EASY;
+                } else if (key == KeyEvent.VK_2) {
+                    difficulty = Commons.DIFFICULTY_NORMAL;
+                } else if (key == KeyEvent.VK_3) {
+                    difficulty = Commons.DIFFICULTY_HARD;
+                }
+
+                repaint();
+            }
+
             if (key == KeyEvent.VK_SPACE) {
 
                 if (inGame) {
