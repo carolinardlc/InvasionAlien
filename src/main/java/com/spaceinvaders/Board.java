@@ -656,7 +656,7 @@ public class Board extends JPanel {
         for (Alien alien : aliens) {
 
             int bombChance = Math.max(Commons.MIN_BOMB_CHANCE,
-                    Commons.BASE_BOMB_CHANCE - (level - 1));
+                    Commons.DIFFICULTY_BOMB_CHANCE[difficulty] - (level - 1));
             int shot = generator.nextInt(bombChance);
             Alien.Bomb bomb = alien.getBomb();
 
