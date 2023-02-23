@@ -49,7 +49,7 @@ public class Board extends JPanel {
     private int deaths = 0;
     private int score = 0;
     private int highScore = 0;
-    private int lives = Commons.INITIAL_LIVES;
+    private int lives = Commons.DIFFICULTY_LIVES[difficulty];
     private int level = 1;
     private boolean doubleShot = false;
     private int doubleShotTimer = 0;
@@ -783,6 +783,7 @@ public class Board extends JPanel {
                 if (onTitle) {
                     onTitle = false;
                     inGame = true;
+                    lives = Commons.DIFFICULTY_LIVES[difficulty];
                     timer.start();
                 } else if (!inGame) {
                     restartGame();
@@ -825,7 +826,7 @@ public class Board extends JPanel {
 
         deaths = 0;
         score = 0;
-        lives = Commons.INITIAL_LIVES;
+        lives = Commons.DIFFICULTY_LIVES[difficulty];
         level = 1;
         direction = -1;
         inGame = true;
