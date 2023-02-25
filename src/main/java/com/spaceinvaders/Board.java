@@ -44,6 +44,8 @@ public class Board extends JPanel {
     private Shot shot;
     private Ufo ufo = new Ufo();
     private PowerUp powerUp = new PowerUp();
+    private List<ScoreEntry> scoreTable = new ArrayList<>();
+    private static final int MAX_SCORE_ENTRIES = 5;
 
     private int direction = -1;
     private int deaths = 0;
