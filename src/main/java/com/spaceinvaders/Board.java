@@ -366,6 +366,8 @@ public class Board extends JPanel {
                     highScore = score;
                     saveHighScore();
                 }
+
+                addScoreEntry(score);
             }
 
             gameOver(g);
@@ -791,6 +793,16 @@ public class Board extends JPanel {
                     restartGame();
                 }
             }
+        }
+    }
+
+    private void addScoreEntry(int score) {
+
+        scoreTable.add(new ScoreEntry("---", score));
+        scoreTable.sort((a, b) -> b.getScore() - a.getScore());
+
+        if (scoreTable.size() > MAX_SCORE_ENTRIES) {
+            scoreTable = new ArrayList<>(scoreTable.subList(0, MAX_SCORE_ENTRIES));
         }
     }
 
