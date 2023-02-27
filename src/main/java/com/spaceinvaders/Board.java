@@ -405,6 +405,28 @@ public class Board extends JPanel {
         FontMetrics scoreFm = this.getFontMetrics(hint);
         g.drawString(scoreMsg, (Commons.BOARD_WIDTH - scoreFm.stringWidth(scoreMsg)) / 2,
                 Commons.BOARD_WIDTH / 2 + 40);
+
+        if (!scoreTable.isEmpty()) {
+
+            String tableTitle = "TOP SCORES";
+            FontMetrics ttfm = this.getFontMetrics(small);
+            g.setColor(Color.green);
+            g.setFont(small);
+            g.drawString(tableTitle, (Commons.BOARD_WIDTH - ttfm.stringWidth(tableTitle)) / 2,
+                    Commons.BOARD_WIDTH / 2 + 65);
+
+            g.setFont(hint);
+            g.setColor(Color.white);
+            int tableY = Commons.BOARD_WIDTH / 2 + 80;
+
+            for (int i = 0; i < scoreTable.size(); i++) {
+                ScoreEntry entry = scoreTable.get(i);
+                String line = (i + 1) + ". " + entry.getInitials() + "  " + entry.getScore();
+                FontMetrics lfm = this.getFontMetrics(hint);
+                g.drawString(line, (Commons.BOARD_WIDTH - lfm.stringWidth(line)) / 2, tableY);
+                tableY += 15;
+            }
+        }
     }
 
     private void update() {
