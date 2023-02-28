@@ -60,6 +60,8 @@ public class Board extends JPanel {
     private boolean inGame = false;
     private boolean onTitle = true;
     private boolean paused = false;
+    private boolean enteringInitials = false;
+    private String currentInitials = "";
     private String explImg = "src/images/explosion.png";
     private String message = "Game Over";
 
@@ -368,6 +370,8 @@ public class Board extends JPanel {
                 }
 
                 addScoreEntry(score);
+                enteringInitials = true;
+                currentInitials = "";
             }
 
             gameOver(g);
@@ -396,6 +400,16 @@ public class Board extends JPanel {
 
         Font hint = new Font("Helvetica", Font.PLAIN, 11);
         g.setFont(hint);
+
+        if (enteringInitials) {
+            String initialsMsg = "Enter initials: " + currentInitials + "_";
+            FontMetrics ifm = this.getFontMetrics(hint);
+            g.setColor(Color.yellow);
+            g.drawString(initialsMsg, (Commons.BOARD_WIDTH - ifm.stringWidth(initialsMsg)) / 2,
+                    Commons.BOARD_WIDTH / 2 + 20);
+            return;
+        }
+
         String restartMsg = "Press ENTER to play again";
         FontMetrics hintMetrics = this.getFontMetrics(hint);
         g.drawString(restartMsg, (Commons.BOARD_WIDTH - hintMetrics.stringWidth(restartMsg)) / 2,
